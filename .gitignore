@@ -1,0 +1,48 @@
+# === Gradle / ForgeGradle build output ===
+build/
+.gradle/
+out/
+
+# === Minecraft run directories (worlds, logs, crash reports) ===
+run/
+runs/
+*.log
+crash-reports/
+
+# === Decompiled sources (reference material, not build input) ===
+sources-decompiled/
+
+# === Exploded-jar remnants at project root (original mod's unpacked class files) ===
+# Keep src/, gradle files, resources — ignore loose decompiled output
+/fr/
+/META-INF/
+/extra/
+
+# === IDE ===
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+bin/
+
+# === OS ===
+.DS_Store
+Thumbs.db
+
+# === Secrets — never commit credentials ===
+*.pem
+*.key
+.env
+dora-web.env
+
+# === Root-level exploded-jar remnants (real source lives in src/) ===
+/assets/
+/data/
+/pack.mcmeta
+/falloutcraft.png
+
+# === Third-party dependency jars — drop JEI + Terrablender in manually ===
+# (build.gradle reads ./libs; see README)
+libs/

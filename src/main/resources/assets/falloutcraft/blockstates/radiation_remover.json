@@ -1,0 +1,19 @@
+{
+	"variants": {
+	"facing=north": {
+		"model": "falloutcraft:block/radiation_remover"
+	},
+	"facing=south": {
+		"model": "falloutcraft:block/radiation_remover",
+		"y": 180
+	},
+	"facing=west": {
+		"model": "falloutcraft:block/radiation_remover",
+		"y": 270
+	},
+	"facing=east": {
+		"model": "falloutcraft:block/radiation_remover",
+		"y": 90
+	}
+}
+}

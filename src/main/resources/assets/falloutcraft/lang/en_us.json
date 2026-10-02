@@ -1,0 +1,85 @@
+{
+  "item.falloutcraft.nuka_cola": "Nuka Cola",
+  "item.falloutcraft.nuka_cola_berry": "Nuka Cola Berry",
+
+  "item.falloutcraft.paper_on_the_ground": "Paper on the ground",
+  "item.falloutcraft.radiated_water_bucket": "Radiated Water",
+  "item.falloutcraft.irradiated_oak_sapling": "Irradiated Oak Sapling",
+  "item.falloutcraft.nuka_cola_mixture": "Nuka Cola Mixture",
+  "item.falloutcraft.nuka_cola_berry_mixture": "Nuka Cola Berry Mixture",
+
+  "item.falloutcraft.hazmat_chestplate": "Hazmat Chestplate",
+  "item.falloutcraft.hazmat_leggings": "Hazmat Leggings",
+  "item.falloutcraft.hazmat_boots": "Hazmat Boots",
+  "item.falloutcraft.hazmat_mask": "Hazmat Mask",
+
+  "item.falloutcraft.stimpak": "Stimpak",
+  "item.falloutcraft.radaway": "Radaway",
+  "item.falloutcraft.geiger_counter": "Geiger Counter",
+
+  "item.falloutcraft.pimp_boy": "Pimp Boy 3000",
+  "item.falloutcraft.pip_boy": "Pip Boy 3000",
+
+
+  "block.falloutcraft.papers_on_the_ground": "Papers on the ground",
+  "block.falloutcraft.irradiated_oak_sapling": "Irradiated Oak Sapling",
+  "block.falloutcraft.nuka_cola_machine": "Nuka Cola Machine",
+  "block.falloutcraft.vault_trapdoor": "Vault Trapdoor",
+  "block.falloutcraft.ash": "Ash",
+  "block.falloutcraft.ash_block": "Ash Block",
+  "block.falloutcraft.poisoned_grass": "Ash Block",
+  "block.falloutcraft.bunrt_oak_log": "Burnt Oak Wood",
+
+  "block.falloutcraft.radioactiva": "Radioactiva",
+  "block.falloutcraft.potted_radioactiva": "Potted Radioactiva",
+  "block.falloutcraft.quickdirt": "Quickdirt",
+  "block.falloutcraft.quicksand": "Quicksand",
+
+  "container.falloutcraft.nukacola_machine": "Nuka Cola Machine",
+
+  "effect.falloutcraft.radiations": "Radiations",
+
+  "itemGroup.falloutcraft_tab": "FalloutCraft",
+  "itemGroup.decoration_tab": "Decoration",
+
+  "death.attack.radioactive_rain": "%1$s took a shower of plutonium",
+
+  "tooltip.falloutcraft.radiations": "&cRadiations : %s",
+  "commands.falloutcraft.addRadiation.success": "Radiations set to %s for %s",
+  "commands.falloutcraft.addRadiation.failure": "Radiations can't be add to %s",
+
+  "falloutcraft.nuka_cola_machine.tooltip.liquid.amount.capacity": "%s / %s mB",
+  "falloutcraft.nuka_cola_machine.tooltip.liquid.amount": "%s mB",
+
+  "biome.falloutcraft.radioactive_plains": "Radioactive Plains",
+  "biome.falloutcraft.radioactive_forest": "Radioactive Forest",
+
+  "effect.falloutcraft.radiation_potion": "Radiation",
+  "item.minecraft.potion.effect.radiation_potion": "Radiation Potion",
+  "item.minecraft.splash_potion.effect.radiation_potion": "Splash Radiation Potion",
+  "item.minecraft.lingering_potion.effect.radiation_potion": "Lingering Radiation Potion",
+  "item.minecraft.tipped_arrow.effect.radiation_potion": "Radiation Arrow",
+
+  "message.falloutcraft.radaway.no_item": "You don't have any item in your off hand",
+  "message.falloutcraft.radaway.no_radiation": "%s doesn't have any radiation",
+  "generator.falloutcraft.wastelands_preset": "Wastelands",
+
+  "advancements.falloutcraft.title": "The Vault Player ",
+  "advancements.falloutcraft.descr": "The one who survive",
+
+  "advancements.pimp_boy.title": "Pimp my Pip Boy",
+  "advancements.pimp_boy.descr": "Craft a shiny Pimp Boy",
+
+  "advancements.nuka_cola_machine.title": "The old machine",
+  "advancements.nuka_cola_machine.descr": "Craft the nuka cola machine",
+
+  "advancements.nuka_cola.title": "Damn that's good !",
+  "advancements.nuka_cola.descr": "Drink a delicious drink",
+
+  "advancements.nuka_cola_berry.title": "A new flavour !",
+  "advancements.nuka_cola_berry.descr": "Very good but not better that the original",
+  "subtitles.falloutcraft.geiger_click": "Geiger counter clicks",
+  "death.attack.radiated_water": "%1$s took an irradiated bath",
+  "death.attack.radiation": "%1$s lost the fight against the fallout"
+
+}

@@ -1,0 +1,18 @@
+{
+  "apocalypse_music_1": {
+    "sounds": [
+      {
+        "name": "falloutcraft:apocalypse_music_1",
+        "stream": false
+      }
+    ]
+  },
+  "geiger_click": {
+    "subtitle": "subtitles.falloutcraft.geiger_click",
+    "sounds": [
+      "falloutcraft:geiger_click_1",
+      "falloutcraft:geiger_click_2",
+      "falloutcraft:geiger_click_3"
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+	"credit": "Authored for Falloutcraft Reduxe tier-2 asset repair",
+	"texture_size": [128, 128],
+	"textures": {
+		"0": "falloutcraft:block/radiation_remover",
+		"particle": "falloutcraft:block/radiation_remover"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 14, 14],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 4], "texture": "#0"},
+				"east": {"uv": [4, 0, 8, 4], "texture": "#0"},
+				"south": {"uv": [8, 0, 12, 4], "texture": "#0"},
+				"west": {"uv": [12, 0, 16, 4], "texture": "#0"},
+				"up": {"uv": [0, 4, 4, 8], "texture": "#0"},
+				"down": {"uv": [4, 4, 8, 8], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"translation": [0, -2.25, -1],
+			"scale": [0.39844, 0.43945, 0.33203]
+		},
+		"thirdperson_lefthand": {
+			"translation": [0, -2.25, -1],
+			"scale": [0.39844, 0.43945, 0.33203]
+		},
+		"firstperson_righthand": {
+			"translation": [0, -2.25, -1],
+			"scale": [0.39844, 0.43945, 0.33203]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, -2.25, -1],
+			"scale": [0.39844, 0.43945, 0.33203]
+		},
+		"ground": {
+			"translation": [0, -0.75, 0],
+			"scale": [0.31641, 0.34961, 0.32617]
+		},
+		"gui": {
+			"rotation": [-179.57, 40.01, 179.35],
+			"translation": [0, -2.75, -1],
+			"scale": [0.74414, 0.66797, 0.33203]
+		},
+		"fixed": {
+			"translation": [0, -2.25, -1],
+			"scale": [0.74414, 0.66797, 0.33203]
+		}
+	}
+}

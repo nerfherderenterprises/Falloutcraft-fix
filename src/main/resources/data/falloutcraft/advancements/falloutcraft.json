@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "item": "falloutcraft:pip_boy"
+    },
+    "title": {
+      "translate": "advancements.falloutcraft.title"
+    },
+    "description": {
+      "translate": "advancements.falloutcraft.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/iron_block.png"
+  },
+  "criteria": {
+    "tick": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "background": "falloutcraft:textures/items/pimp_boy.png",
+  "rewards": {
+    "loot": [
+      "falloutcraft:pip_boy"
+    ]
+  }
+}

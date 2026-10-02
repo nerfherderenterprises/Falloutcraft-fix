@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "falloutcraft:wastelands_preset",
+      "required": false
+    }
+  ]
+}

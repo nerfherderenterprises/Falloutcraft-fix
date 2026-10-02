@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "falloutcraft:block/burnt_oak_sapling"
+    },
+    "stage=1": {
+      "model": "falloutcraft:block/burnt_oak_sapling"
+    }
+  }
+}

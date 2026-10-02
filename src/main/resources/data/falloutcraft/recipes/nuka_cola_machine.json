@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "x",
+    "y",
+    "z"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:iron_block"
+    },
+    "y": {
+      "item": "minecraft:glass_bottle"
+    },
+    "z": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "falloutcraft:nuka_cola_machine",
+    "count": 4
+  }
+}
