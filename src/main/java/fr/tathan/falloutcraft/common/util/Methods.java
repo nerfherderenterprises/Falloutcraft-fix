@@ -210,11 +210,17 @@ public class Methods {
             carried += radiation.getRadiation();
         }
         reading += Math.min(carried / 8.0f, 0.45f);
+        if (player.isInFluidType(ModFluidTypes.RADIATED_WATER_FLUID_TYPE.get())) {
+            // Irradiated water is a global source (Oct 3 ruling): it
+            // clicks in the default world type too.
+            reading += 0.2f;
+        }
         if (isRadiationWorld(level)) {
             if (isWastelandBiome(level, player.blockPosition())) {
                 reading += 0.35f;
             }
-            if (player.isInFluidType(ModFluidTypes.RADIATED_WATER_FLUID_TYPE.get()) || player.isInWater()) {
+            if (player.isInWater()) {
+                // Tainted vanilla water - radiation world only.
                 reading += 0.2f;
             }
             if (level.getLevelData().isRaining() && (double)level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (int)Math.floor(player.getX()), (int)Math.floor(player.getZ())) <= Math.floor(player.getY()) + 1.0) {

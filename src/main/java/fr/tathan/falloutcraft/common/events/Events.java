@@ -43,6 +43,7 @@ import fr.tathan.falloutcraft.common.config.CommonConfig;
 import fr.tathan.falloutcraft.common.fluid.ModFluidTypes;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiation;
 import fr.tathan.falloutcraft.common.radiation.ItemRadiationProvider;
+import fr.tathan.falloutcraft.common.registries.BlocksRegistry;
 import fr.tathan.falloutcraft.common.registries.EffectsRegistry;
 import fr.tathan.falloutcraft.common.registries.ItemsRegistry;
 import fr.tathan.falloutcraft.common.registries.SoundsRegistry;
@@ -52,6 +53,7 @@ import fr.tathan.falloutcraft.common.util.Methods;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import java.util.List;
 import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
@@ -84,6 +86,26 @@ import net.minecraftforge.server.command.ConfigCommand;
 
 @Mod.EventBusSubscriber(modid="falloutcraft")
 public class Events {
+    /**
+     * True when the player's inventory holds a filled radiated-water
+     * bucket (main inventory or offhand). Placed buckets don't count -
+     * setting the bucket down moves the hazard into the block-anchored
+     * patch instead.
+     */
+    private static boolean carriesRadiatedBucket(Player player) {
+        for (ItemStack stack : player.getInventory().items) {
+            if (stack.is(ItemsRegistry.RADIATED_WATER_BUCKET.get())) {
+                return true;
+            }
+        }
+        for (ItemStack stack : player.getInventory().offhand) {
+            if (stack.is(ItemsRegistry.RADIATED_WATER_BUCKET.get())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @SubscribeEvent
     public static void playerTick(TickEvent.PlayerTickEvent event) {
         if (event.phase == TickEvent.Phase.END) {
@@ -103,20 +125,89 @@ public class Events {
                     }
                 }
             }
-            if (!Methods.isRadiationWorld(level)) {
-                // Tier-3 world-type gate: the radiation system is not
-                // implemented in the default world type. No fluid immersion,
-                // no item-radiation ladder - irradiated items keep their
-                // values (global), they just stop acting on you here.
-                return;
-            }
-            if ((player.isInFluidType((FluidType)ModFluidTypes.RADIATED_WATER_FLUID_TYPE.get()) || player.isInWater()) && !Methods.hasHazmatSuit(player)) {
+            // Irradiated water is global (Jimmy, Oct 3 ruling): it must
+            // be radioactive, bright and injurious in BOTH the default
+            // and the wasteland world type - hence the very small AoE:
+            // the fluid you stand in, a 3x3x2 patch around a placed
+            // source (bottom center, one block out, one layer up), or a
+            // 3x3x3 box around a carried filled bucket. Never more than
+            // a block away, so the default world stays livable. These
+            // run BEFORE the world-type gate on purpose; every other
+            // radiation vector still stops at the gate below.
+            if (player.isInFluidType((FluidType)ModFluidTypes.RADIATED_WATER_FLUID_TYPE.get()) && !Methods.hasHazmatSuit(player)) {
                 player.addEffect(new MobEffectInstance((MobEffect)EffectsRegistry.RADIATION.get(), 10));
                 if (!player.getAbilities().instabuild && player.getRandom().nextFloat() < 0.002f) {
                     // Immersion clock: ~0.5 HP every 25 s = death from a long
                     // swim in ~16 minutes (regeneration is suppressed while
                     // the badge shows, so the rate is honest against a fed
                     // player too).
+                    player.hurt(Methods.DAMAGE_SOURCE_RADIATED_WATER, 0.5f);
+                }
+            }
+            if (!player.isSpectator() && !Methods.hasHazmatSuit(player)) {
+                // Ouch radius: a 3x3x2 hostile patch anchored on radiated
+                // water - water at the bottom center, one block out
+                // horizontally, one layer up. Standing in, beside, or on top
+                // of irradiated water counts (feet at the water's level or
+                // one above it). Same exposure model as the biome: badge +
+                // slow kill clock; hazmat blocks it. Global like the fluid
+                // itself - the small box is what makes it safe to run in
+                // the default world type. A placed bucket of radiated water
+                // carries this zone with it.
+                boolean nearWater = false;
+                for (int dx = -1; dx <= 1 && !nearWater; dx++) {
+                    for (int dz = -1; dz <= 1 && !nearWater; dz++) {
+                        for (int dy = 0; dy <= 1; dy++) {
+                            if (level.getBlockState(player.blockPosition().offset(dx, -dy, dz)).getBlock() == BlocksRegistry.RADIATED_WATER_BLOCK.get()) {
+                                nearWater = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+                // Carried bucket: the bucket sits at the carrier's center,
+                // so a carried pool radiates a 3x3x3 box - one block out on
+                // every axis - that travels with them. Carrier and any
+                // close company (feet within one block on all three axes)
+                // share the dose. Filled bucket item only: placing it moves
+                // the zone back to the block-anchored 3x3x2 patch above.
+                boolean carriedBucket = carriesRadiatedBucket(player);
+                if (!carriedBucket) {
+                    BlockPos feet = player.blockPosition();
+                    for (Player other : level.players()) {
+                        if (other != player
+                                && Math.abs(other.blockPosition().getX() - feet.getX()) <= 1
+                                && Math.abs(other.blockPosition().getY() - feet.getY()) <= 1
+                                && Math.abs(other.blockPosition().getZ() - feet.getZ()) <= 1
+                                && carriesRadiatedBucket(other)) {
+                            carriedBucket = true;
+                            break;
+                        }
+                    }
+                }
+                if (nearWater || carriedBucket) {
+                    player.addEffect(new MobEffectInstance((MobEffect)EffectsRegistry.RADIATION.get(), 40));
+                    if (!player.getAbilities().instabuild && player.getRandom().nextFloat() < 0.002f) {
+                        player.hurt(Methods.DAMAGE_SOURCE_RADIATED_WATER, 0.5f);
+                    }
+                }
+            }
+            if (!Methods.isRadiationWorld(level)) {
+                // Tier-3 world-type gate: the radiation system is not
+                // implemented in the default world type. No ambient biome
+                // dose, no radioactive rain, no item-radiation ladder -
+                // irradiated items keep their values (global), they just
+                // stop acting on you here. Irradiated water is exempt
+                // (global small AoE, see above).
+                return;
+            }
+            if (player.isInWater() && !Methods.hasHazmatSuit(player)) {
+                // Tainted water: in the radiation world every pool counts
+                // (TATHAN's original rule) - separate from the global
+                // radiated-fluid check above; the two fluids never
+                // overlap, so this never double-doses.
+                player.addEffect(new MobEffectInstance((MobEffect)EffectsRegistry.RADIATION.get(), 10));
+                if (!player.getAbilities().instabuild && player.getRandom().nextFloat() < 0.002f) {
                     player.hurt(Methods.DAMAGE_SOURCE_RADIATED_WATER, 0.5f);
                 }
             }

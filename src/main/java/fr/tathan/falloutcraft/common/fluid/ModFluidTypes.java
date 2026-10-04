@@ -29,7 +29,7 @@ public class ModFluidTypes {
     public static final ResourceLocation WATER_FLOWING_RL = new ResourceLocation("block/water_flow");
     public static final ResourceLocation RADIATED_WATER_OVERLAY_RL = new ResourceLocation("falloutcraft", "misc/in_radiated_water_fluid");
     public static final DeferredRegister<FluidType> FLUID_TYPES = DeferredRegister.create((ResourceKey)ForgeRegistries.Keys.FLUID_TYPES, (String)"falloutcraft");
-    public static final RegistryObject<FluidType> RADIATED_WATER_FLUID_TYPE = ModFluidTypes.register("radiated_water_fluid", FluidType.Properties.create().lightLevel(2).density(15).viscosity(5).lightLevel(12).supportsBoating(true));
+    public static final RegistryObject<FluidType> RADIATED_WATER_FLUID_TYPE = ModFluidTypes.register("radiated_water_fluid", FluidType.Properties.create().lightLevel(15).density(15).viscosity(5).supportsBoating(true));
 
     private static RegistryObject<FluidType> register(String name, FluidType.Properties properties) {
         return FLUID_TYPES.register(name, () -> new BaseFluidType(WATER_STILL_RL, WATER_FLOWING_RL, RADIATED_WATER_OVERLAY_RL, 982784, new Vector3f(0.39215687f, 0.8666667f, 0.09019608f), properties));

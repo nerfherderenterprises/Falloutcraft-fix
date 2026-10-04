@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xyx",
+    "zzz"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    },
+    "y": {
+      "item": "minecraft:glass"
+    },
+    "z": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "result": {
+    "item": "falloutcraft:radiation_remover",
+    "count": 1
+  }
+}

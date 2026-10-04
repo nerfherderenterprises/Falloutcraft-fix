@@ -111,7 +111,7 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addJungleVines((BiomeGenerationSettings.Builder)biomeBuilder);
         FalloutOverworldBiomes.jungleFeatures(biomeBuilder);
         FalloutOverworldBiomes.addLakes(biomeBuilder);
-        return FalloutOverworldBiomes.biome(Biome.Precipitation.NONE, 2.0f, 0.0f, 6415715, 6415715, mobspawnsetting, biomeBuilder, APOCALYPTIC_MUSIC);
+        return FalloutOverworldBiomes.biome(Biome.Precipitation.RAIN, 2.0f, 0.0f, 6415715, 6415715, mobspawnsetting, biomeBuilder, APOCALYPTIC_MUSIC);
     }
 
     public static Biome ashLand() {
@@ -122,7 +122,7 @@ public class FalloutOverworldBiomes {
         BiomeDefaultFeatures.addDefaultOres((BiomeGenerationSettings.Builder)biomegenerationsettings$builder);
         biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.LAKES, (Holder)FalloutPlacedFeatures.RADIATED_WATER_LAKE_ASH.getHolder().get());
         biomegenerationsettings$builder.addFeature(GenerationStep.Decoration.TOP_LAYER_MODIFICATION, (Holder)FalloutPlacedFeatures.ASH_TOP_LAYER.getHolder().get());
-        return FalloutOverworldBiomes.biome(Biome.Precipitation.NONE, 2.0f, 0.0f, 6415715, 6415715, mobspawnsetting, biomegenerationsettings$builder, APOCALYPTIC_MUSIC);
+        return FalloutOverworldBiomes.biome(Biome.Precipitation.RAIN, 2.0f, 0.0f, 6415715, 6415715, mobspawnsetting, biomegenerationsettings$builder, APOCALYPTIC_MUSIC);
     }
 
     public static void addLakes(BiomeGenerationSettings.Builder biomeBuilder) {

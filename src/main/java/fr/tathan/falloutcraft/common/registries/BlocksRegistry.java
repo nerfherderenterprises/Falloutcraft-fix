@@ -60,7 +60,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 public class BlocksRegistry {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create((IForgeRegistry)ForgeRegistries.BLOCKS, (String)"falloutcraft");
-    public static final RegistryObject<LiquidBlock> RADIATED_WATER_BLOCK = BLOCKS.register("radiated_water_block", () -> new RadiatedWaterBlock((Supplier<? extends FlowingFluid>)FluidsRegistry.SOURCE_RADIATED_WATER, BlockBehaviour.Properties.copy((BlockBehaviour)Blocks.WATER).lightLevel(p_50872_ -> 12)));
+    public static final RegistryObject<LiquidBlock> RADIATED_WATER_BLOCK = BLOCKS.register("radiated_water_block", () -> new RadiatedWaterBlock((Supplier<? extends FlowingFluid>)FluidsRegistry.SOURCE_RADIATED_WATER, BlockBehaviour.Properties.copy((BlockBehaviour)Blocks.WATER).lightLevel(p_50872_ -> 15)));
     public static final RegistryObject<Block> PAPERS_ON_THE_GROUND = BLOCKS.register("papers_on_the_ground", () -> new PapersOnTheGround(BlockBehaviour.Properties.copy((BlockBehaviour)Blocks.CYAN_CARPET).instabreak().noOcclusion().noCollission()));
     public static final RegistryObject<Block> IRRADIATED_OAK_SAPLING = BLOCKS.register("irradiated_oak_sapling", () -> new SaplingBlock((AbstractTreeGrower)new IrradiatedOakGrower(), BlockBehaviour.Properties.copy((BlockBehaviour)Blocks.OAK_SAPLING)));
     public static final RegistryObject<Block> POISONED_JUNGLE_SAPLING = BLOCKS.register("poisoned_jungle_sapling", () -> new SaplingBlock((AbstractTreeGrower)new PoisonedJungleTreeGrower(), BlockBehaviour.Properties.copy((BlockBehaviour)Blocks.JUNGLE_SAPLING)));

@@ -61,7 +61,7 @@ public class ItemsRegistry {
     public static final RegistryObject<BlockItem> PAPERS_ON_THE_GROUND_ITEM = ITEMS.register("papers_on_the_ground", () -> new BlockItem((Block)BlocksRegistry.PAPERS_ON_THE_GROUND.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
     public static final RegistryObject<BlockItem> NUKA_COLA_MACHINE_ITEM = ITEMS.register("nuka_cola_machine", () -> new BlockItem((Block)BlocksRegistry.NUKA_COLA_MACHINE.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
     public static final RegistryObject<BlockItem> RADIOACTIVA = ITEMS.register("radioactiva", () -> new BlockItem((Block)BlocksRegistry.RADIOACTIVA.get(), new Item.Properties().tab(TabsRegistry.TAB)));
-    public static final RegistryObject<BlockItem> RADIATION_REMOVER_ITEM = ITEMS.register("radiation_remover", () -> new BlockItem((Block)BlocksRegistry.RADIATION_REMOVER.get(), new Item.Properties()));
+    public static final RegistryObject<BlockItem> RADIATION_REMOVER_ITEM = ITEMS.register("radiation_remover", () -> new BlockItem((Block)BlocksRegistry.RADIATION_REMOVER.get(), new Item.Properties().tab(TabsRegistry.TAB_DECORATION)));
     public static final RegistryObject<BlockItem> VAULT_BUTTONS = ITEMS.register("vault_buttons", () -> new BlockItem((Block)BlocksRegistry.VAULT_BUTTONS.get(), new Item.Properties()));
     public static final RegistryObject<BlockItem> QUICKSAND = ITEMS.register("quicksand", () -> new BlockItem((Block)BlocksRegistry.QUICKSAND.get(), new Item.Properties().tab(TabsRegistry.TAB)));
     public static final RegistryObject<BlockItem> QUICKDIRT = ITEMS.register("quickdirt", () -> new BlockItem((Block)BlocksRegistry.QUICKDIRT.get(), new Item.Properties().tab(TabsRegistry.TAB)));
