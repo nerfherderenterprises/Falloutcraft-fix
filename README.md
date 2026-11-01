@@ -2,7 +2,7 @@
 I liked the mod, so i fixed it so the dev could eventually post it on his curseforge and modrinth, 
 
 
-Minecraft 1.19.2 Forge mod. Originally created by **TATHAN**.
+Minecraft 1.19.2 Forge mod. Originally created by **TATHAN** https://github.com/TathanDev .
 
 ## Building
 
